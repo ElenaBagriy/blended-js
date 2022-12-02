@@ -24,20 +24,31 @@
 //Додати перевірку, що аргументи це числа.
 
 function caculculateAverage(...args) {
-    let total = 0;
-    let calm = 0;
-    for (let i = 0; i < args.length; i += 1) {
-        if (typeof args[i] !== 'number') {
-            continue
-        }
-        total += args[i];
-        calm += 1;
+  let total = 0;
+  let calm = 0;
+  for (let i = 0; i < args.length; i += 1) {
+    if (typeof args[i] !== 'number') {
+      continue;
     }
-    console.log((total/calm).toFixed(2));
+    total += args[i];
+    calm += 1;
+  }
+  console.log((total / calm).toFixed(2));
 }
 
 caculculateAverage(12, 18, 32, 'testa', 'testb');
 
+// І була пані на палубі
+// Де помити мопед
 
+function palindrom(string) {
+  const normalizedString = string.replaceAll(' ', '').toLowerCase();
 
+  console.log(normalizedString);
 
+  const reversedString = [...normalizedString].reverse().join('');
+  console.log(reversedString);
+
+  console.log(reversedString === normalizedString);
+}
+palindrom('Де помити мопед');
