@@ -23,6 +23,7 @@
 //Аргументів і повертає їхнє середнє значення.
 //Додати перевірку, що аргументи це числа.
 
+
 // function caculculateAverage(...args) {
 //     let total = 0;
 //     let calm = 0;
@@ -37,6 +38,21 @@
 // }
 
 // caculculateAverage(12, 18, 32, 'testa', 'testb');
+
+// І була пані на палубі
+// Де помити мопед
+
+function palindrom(string) {
+  const normalizedString = string.replaceAll(' ', '').toLowerCase();
+
+  console.log(normalizedString);
+
+  const reversedString = [...normalizedString].reverse().join('');
+  console.log(reversedString);
+
+  console.log(reversedString === normalizedString);
+}
+palindrom('Де помити мопед');
 
 const people = [
   {
@@ -145,3 +161,6 @@ const isNarciss = arr => {
 };
 
 isNarciss(people);
+
+
+
