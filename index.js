@@ -23,7 +23,6 @@
 //Аргументів і повертає їхнє середнє значення.
 //Додати перевірку, що аргументи це числа.
 
-
 // function caculculateAverage(...args) {
 //     let total = 0;
 //     let calm = 0;
@@ -162,7 +161,6 @@
 
 // isNarciss(people);
 
-
 //1. Напиши скрипт для об'єкта user,
 //Послідовно:
 //1 додасть поле mood зі значенням 'happy'
@@ -171,13 +169,13 @@
 //4 виводить вміст об'єкта users у форматі
 //ключ:значення використовуючи Object.keys() і for...of
 
-const user = {
-  name: "John",
-  age: 20,
-  hobby: "tenis",
-  premium: true,
-  
-};
+// const user = {
+//   name: "John",
+//   age: 20,
+//   hobby: "tenis",
+//   premium: true,
+
+// };
 
 // user.mood = 'happy';
 // user['mood'] = 'happy';
@@ -195,26 +193,51 @@ const user = {
 
 // user[userHobby] = 'skydiving';
 
-user.premium = false;
-user['premium'] = false;
+// user.premium = false;
+// user['premium'] = false;
 
-const userPremium = 'premium';
+// const userPremium = 'premium';
 
-user[userPremium] = false;
+// user[userPremium] = false;
 
+// const keys = Object.keys(user);
 
-const keys = Object.keys(user);
+// for (const key of keys) {
+//   console.log(`${key} - ${user[key]}`);
+// }
 
-for (const key of keys) {
-  console.log(`${key} - ${user[key]}`);
+// const a = {};
+
+// user[a] = 'Pamaparam';
+
+// console.log(user);
+
+// const b = {};
+// user[b] = 123214;
+// console.log(user);
+
+// Task 6
+
+//2. У нас є об'єкт, в якому зберігатимуться зарплати
+//Нашої команди
+//Напишіть код для сумування всіх зарплат і
+//Збережіть його результат у змінній sum.
+//Якщо об'єкт salaries порожній, то результат має бути 0
+
+const salaries = {
+  Mango: 100,
+  Poly: 160,
+  Ajax: 1470,
+};
+
+function salariesSum(salaries) {
+  const salariseValue = Object.values(salaries);
+  let sum = 0;
+  for (const salary of salariseValue) {
+    sum += salary;
+  }
+
+  console.log(sum);
 }
 
-const a = {};
-
-user[a] = 'Pamaparam';
-
-console.log(user);
-
-const b = {};
-user[b] = 123214;
-console.log(user);
+salariesSum(salaries);
