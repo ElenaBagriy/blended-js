@@ -1,4 +1,6 @@
-//Якщо число ділитися на 3 повертати
+// -------------------TASK 1-------------------
+
+// Якщо число ділитися на 3 повертати
 //fizz якщо ділитися на 5 повертати buzz
 //якщо ділитися на 3 і на 5 повернути fizzbuzz
 
@@ -17,6 +19,8 @@
 // }
 
 // checkNumber(24);
+
+// -------------------TASK 2-------------------
 
 //Напишіть функцію caculculateAverage()
 //яка приймає довільну кількість
@@ -38,6 +42,9 @@
 
 // caculculateAverage(12, 18, 32, 'testa', 'testb');
 
+
+// -------------------TASK 3-------------------
+
 // І була пані на палубі
 // Де помити мопед
 
@@ -52,6 +59,9 @@
 //   console.log(reversedString === normalizedString);
 // }
 // palindrom('Де помити мопед');
+
+
+// -------------------TASK 4-------------------
 
 // const people = [
 //   {
@@ -161,6 +171,9 @@
 
 // isNarciss(people);
 
+
+// -------------------TASK 5-------------------
+
 //1. Напиши скрипт для об'єкта user,
 //Послідовно:
 //1 додасть поле mood зі значенням 'happy'
@@ -216,7 +229,8 @@
 // user[b] = 123214;
 // console.log(user);
 
-// Task 6
+
+// -------------------TASK 6-------------------
 
 //2. У нас є об'єкт, в якому зберігатимуться зарплати
 //Нашої команди
@@ -224,20 +238,23 @@
 //Збережіть його результат у змінній sum.
 //Якщо об'єкт salaries порожній, то результат має бути 0
 
-const salaries = {
-  Mango: 100,
-  Poly: 160,
-  Ajax: 1470,
-};
+// const salaries = {
+//   Mango: 100,
+//   Poly: 160,
+//   Ajax: 1470,
+// };
 
-function salariesSum(salaries) {
-  const salariseValue = Object.values(salaries);
-  let sum = 0;
-  for (const salary of salariseValue) {
-    sum += salary;
-  }
+// function salariesSum(salaries) {
+//   const salariseValue = Object.values(salaries);
+//   let sum = 0;
+//   for (const salary of salariseValue) {
+//     sum += salary;
+//   }
 
-  console.log(sum);
-}
+//   console.log(sum);
+// }
 
-salariesSum(salaries);
+// salariesSum(salaries);
+
+
+// -------------------TASK 7-------------------
