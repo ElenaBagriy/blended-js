@@ -442,12 +442,40 @@
 
 // -------------------TASK 17-------------------
 
-const numbers = [1, 2, 3, 4, 5, 6, 7];
+// const numbers = [1, 2, 3, 4, 5, 6, 7];
 
-for (let i = 0; i < numbers.length/2; i += 1) {
-    let template = numbers[i];
-    numbers[i] = numbers[numbers.length - 1 - i];
-    numbers[numbers.length - 1 - i] = template;
+// for (let i = 0; i < numbers.length/2; i += 1) {
+//     let template = numbers[i];
+//     numbers[i] = numbers[numbers.length - 1 - i];
+//     numbers[numbers.length - 1 - i] = template;
+// }
+
+// console.log(numbers);
+
+
+// -------------------TASK 18-------------------
+
+class UnsplashAPI {
+  #query = "";
+  #page = 1;
+  #per_page = 10;
+
+  constructor ({per_page} = {}) {
+    this.#per_page = per_page;
+  }
+
+  getPhotos() {
+    console.log(`Create request ${this.#query} ${this.#page} ${this.#per_page}`)
+  };
+  get query() {
+    return this.#query;
+  }
+
+  set query(newQuery) {
+    this.#query = newQuery;
+  }
+
 }
 
-console.log(numbers);
+const unsplashAPI = new UnsplashAPI({per_page: 21});
+console.log(unsplashAPI);
