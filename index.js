@@ -439,47 +439,102 @@
 
 // -------------------TASK 18-------------------
 
-class UnsplashAPI {
-  #query = '';
-  #page = 1;
-  #per_page = 10;
+// class UnsplashAPI {
+//   #query = '';
+//   #page = 1;
+//   #per_page = 10;
 
-  constructor({ per_page } = {}) {
-    this.#per_page = per_page;
+//   constructor({ per_page } = {}) {
+//     this.#per_page = per_page;
+//   }
+
+//   getPhotos() {
+//     console.log(`Create request ${this.#query} ${this.#page} ${this.#per_page}`);
+//   }
+//   get query() {
+//     return this.#query;
+//   }
+
+//   set query(newQuery) {
+//     this.#query = newQuery;
+//   }
+
+//   incrementPage() {
+//     this.#page += 1;
+//   }
+
+//   resetPage() {
+//     this.#page = 1;
+//   }
+// }
+
+// const unsplashAPI = new UnsplashAPI({ per_page: 21 });
+// console.log(unsplashAPI);
+
+// unsplashAPI.query = 'min';
+// unsplashAPI.getPhotos();
+// unsplashAPI.incrementPage();
+// unsplashAPI.incrementPage();
+// unsplashAPI.getPhotos();
+// unsplashAPI.resetPage();
+// unsplashAPI.getPhotos();
+
+// console.log(unsplashAPI.prototype === undefined);
+// console.log(unsplashAPI.__proto__ === UnsplashAPI.prototype);
+// console.log(unsplashAPI);
+// console.log(UnsplashAPI.prototype.__proto__ === Object.prototype);
+// console.log(Object.prototype.__proto__);
+
+// class User {
+
+// }
+
+// console.log(User.prototype === UnsplashAPI.prototype)
+// console.log(User.__proto__ === Function.prototype)
+// console.log(Number.__proto__ === Function.prototype)
+// console.log(String.__proto__ === Function.prototype)
+// console.log(Promise.__proto__ === Function.prototype)
+
+
+// -------------------TASK 19-------------------
+//2. Напиши клас  Storage який створює об'єкти
+//Для управління складом товарів.
+//При виклику отримуватиме один агрумент - початковий масив товарів,
+//і записувати їх у властивість items.
+//Додай методи класу:
+//getItems() - повертайте масив товарів
+//addItems(item) - отримує новий товар та додає його до поточних
+//removeItem(item) - отримує товар і, якщо він є, видаляє його з поточних
+
+class Storage {
+  constructor (items) {
+    this.items = items;
   }
 
-  getPhotos() {
-    console.log(`Create request ${this.#query} ${this.#page} ${this.#per_page}`);
-  }
-  get query() {
-    return this.#query;
+  getItems() {
+    return this.items;
   }
 
-  set query(newQuery) {
-    this.#query = newQuery;
+  addItems(item) {
+    if (this.items.includes(item)) {
+      console.log(`Такий товар вже є`);
+      return;
+    }
+    this.items.push(item);
   }
 
-  incrementPage() {
-    this.#page += 1;
-  }
-
-  resetPage() {
-    this.#page = 1;
+  removeItem(item) {
+    const index = this.items.indexOf(item);
+    if (index === -1) {
+      console.log(`Такого товару немає`);
+      return;
+    } 
+    this.items.splice(index, 1);
   }
 }
 
-const unsplashAPI = new UnsplashAPI({ per_page: 21 });
-console.log(unsplashAPI);
-
-unsplashAPI.query = 'min';
-unsplashAPI.getPhotos();
-unsplashAPI.incrementPage();
-unsplashAPI.incrementPage();
-unsplashAPI.getPhotos();
-unsplashAPI.resetPage();
-unsplashAPI.getPhotos();
-
-console.log(unsplashAPI.prototype === undefined);
-console.log(unsplashAPI.__proto__ === UnsplashAPI.prototype);
-console.log(unsplashAPI);
-console.log(UnsplashAPI.prototype.__proto__ === Object.prototype);
+const fruits = new Storage (["apple", "banana", "mango"]);
+console.log(fruits);
+fruits.addItems("coconut");
+fruits.removeItem("apple");
+console.log(fruits.getItems());
