@@ -42,7 +42,6 @@
 
 // caculculateAverage(12, 18, 32, 'testa', 'testb');
 
-
 // -------------------TASK 3-------------------
 
 // І була пані на палубі
@@ -59,7 +58,6 @@
 //   console.log(reversedString === normalizedString);
 // }
 // palindrom('Де помити мопед');
-
 
 // -------------------TASK 4-------------------
 
@@ -171,7 +169,6 @@
 
 // isNarciss(people);
 
-
 // -------------------TASK 5-------------------
 
 //1. Напиши скрипт для об'єкта user,
@@ -229,7 +226,6 @@
 // user[b] = 123214;
 // console.log(user);
 
-
 // -------------------TASK 6-------------------
 
 //2. У нас є об'єкт, в якому зберігатимуться зарплати
@@ -255,7 +251,6 @@
 // }
 
 // salariesSum(salaries);
-
 
 // -------------------TASK 7-------------------
 
@@ -283,8 +278,6 @@
 // const numbers = [1, 3, 4, 5];
 // console.log(each (numbers,  (number) => number * 21));
 
-
-
 // -------------------TASK 8-------------------
 
 // const vehicles = [
@@ -308,7 +301,6 @@
 
 // console.table(getAvailableCarNames(vehicles, 12))
 
-
 // -------------------TASK 9-------------------
 
 //Отримати машини на розпродажі і сортувати за зменшенням ціни
@@ -318,7 +310,6 @@
 // }
 
 // console.log(getCarsOnSale(vehicles));
-
 
 // -------------------TASK 10-------------------
 
@@ -342,7 +333,6 @@
 
 // sale(fruits);
 
-
 // -------------------TASK 11-------------------
 
 // Дізнатись загальні роки практики в об'єкті workers
@@ -363,7 +353,6 @@
 
 // console.log(sum(workers));
 
-
 // -------------------TASK 12-------------------
 
 // function ownFilter (array, callback) {
@@ -380,7 +369,6 @@
 // ownFilter (numbers, (number) => number > 3);
 // console.log(ownFilter (numbers, (number) => number > 3));
 
-
 // -------------------TASK 14-------------------
 
 // function ownFind (array, callback) {
@@ -395,7 +383,6 @@
 
 // console.log(ownFind (numbers, checkNumber));
 
-
 // -------------------TASK 15-------------------
 
 // const uniqueNumbers = numbers.filter((element, index, array) => (array.indexOf(element) === index));
@@ -406,7 +393,6 @@
 //     [] );
 
 // console.log(uniqueNumbers);
-
 
 // -------------------TASK 16-------------------
 
@@ -439,7 +425,6 @@
 
 // console.log(findFirstUnique(input3));
 
-
 // -------------------TASK 17-------------------
 
 // const numbers = [1, 2, 3, 4, 5, 6, 7];
@@ -452,21 +437,20 @@
 
 // console.log(numbers);
 
-
 // -------------------TASK 18-------------------
 
 class UnsplashAPI {
-  #query = "";
+  #query = '';
   #page = 1;
   #per_page = 10;
 
-  constructor ({per_page} = {}) {
+  constructor({ per_page } = {}) {
     this.#per_page = per_page;
   }
 
   getPhotos() {
-    console.log(`Create request ${this.#query} ${this.#page} ${this.#per_page}`)
-  };
+    console.log(`Create request ${this.#query} ${this.#page} ${this.#per_page}`);
+  }
   get query() {
     return this.#query;
   }
@@ -475,7 +459,27 @@ class UnsplashAPI {
     this.#query = newQuery;
   }
 
+  incrementPage() {
+    this.#page += 1;
+  }
+
+  resetPage() {
+    this.#page = 1;
+  }
 }
 
-const unsplashAPI = new UnsplashAPI({per_page: 21});
+const unsplashAPI = new UnsplashAPI({ per_page: 21 });
 console.log(unsplashAPI);
+
+unsplashAPI.query = 'min';
+unsplashAPI.getPhotos();
+unsplashAPI.incrementPage();
+unsplashAPI.incrementPage();
+unsplashAPI.getPhotos();
+unsplashAPI.resetPage();
+unsplashAPI.getPhotos();
+
+console.log(unsplashAPI.prototype === undefined);
+console.log(unsplashAPI.__proto__ === UnsplashAPI.prototype);
+console.log(unsplashAPI);
+console.log(UnsplashAPI.prototype.__proto__ === Object.prototype);
