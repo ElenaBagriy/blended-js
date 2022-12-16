@@ -9,3 +9,4 @@ const updateValue = event => {
 inputList.forEach(input => {
   input.addEventListener('input', updateValue);
 });
+//comment
