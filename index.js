@@ -608,11 +608,11 @@ const addHandler = () => {
 addBtn.addEventListener('click', addHandler);
 
 const removeHandler = () => {
-  if (listEl.hasChildNodes()) {
-    listEl.lastElementChild.remove();
-  } else {
+  if (!listEl.hasChildNodes()) {
     console.log('No elements to be removed');
+    return;
   }
+  listEl.lastElementChild.remove();
 };
 
 removeBtn.addEventListener('click', removeHandler);
