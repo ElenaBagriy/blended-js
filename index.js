@@ -495,7 +495,6 @@
 // console.log(String.__proto__ === Function.prototype)
 // console.log(Promise.__proto__ === Function.prototype)
 
-
 // -------------------TASK 19-------------------
 //2. Напиши клас  Storage який створює об'єкти
 //Для управління складом товарів.
@@ -506,35 +505,75 @@
 //addItems(item) - отримує новий товар та додає його до поточних
 //removeItem(item) - отримує товар і, якщо він є, видаляє його з поточних
 
-class Storage {
-  constructor (items) {
+// class Storage {
+//   constructor (items) {
+//     this.items = items;
+//   }
+
+//   getItems() {
+//     return this.items;
+//   }
+
+//   addItems(item) {
+//     if (this.items.includes(item)) {
+//       console.log(`Такий товар вже є`);
+//       return;
+//     }
+//     this.items.push(item);
+//   }
+
+//   removeItem(item) {
+//     const index = this.items.indexOf(item);
+//     if (index === -1) {
+//       console.log(`Такого товару немає`);
+//       return;
+//     }
+//     this.items.splice(index, 1);
+//   }
+// }
+
+// const fruits = new Storage (["apple", "banana", "mango"]);
+// console.log(fruits);
+// fruits.addItems("coconut");
+// fruits.removeItem("apple");
+// console.log(fruits.getItems());
+
+// Напиши клас Notes який управляє колекцією нотаток у
+//Властивості items.
+//Нотатка це об'єкт із властивостями text priority
+//Додай класу статичну властивість Priority,
+//у якому зберігатиметься об'єкт із пріоритетами.
+//Додай методи addNote(note), removeNote(text)
+//updatePriority(text, newPriority)
+
+class Notes {
+  static Priority = { HIGHT: 'hight', LOW: 'low' };
+
+  constructor(items = []) {
     this.items = items;
   }
 
-  getItems() {
-    return this.items;
+  addNote(note) {
+    this.items.push(note);
   }
 
-  addItems(item) {
-    if (this.items.includes(item)) {
-      console.log(`Такий товар вже є`);
-      return;
-    }
-    this.items.push(item);
+  removeNote(text) {
+    this.items = this.items.filter(item => item.text !== text);
   }
 
-  removeItem(item) {
-    const index = this.items.indexOf(item);
-    if (index === -1) {
-      console.log(`Такого товару немає`);
-      return;
-    } 
-    this.items.splice(index, 1);
+  updatePriority(text, newPriority) {
+    this.items = this.items.map(item => {
+      if (item.text === text) {
+        item.priority = newPriority;
+      }
+      return item;
+    });
   }
 }
 
-const fruits = new Storage (["apple", "banana", "mango"]);
-console.log(fruits);
-fruits.addItems("coconut");
-fruits.removeItem("apple");
-console.log(fruits.getItems());
+const note = new Notes();
+
+note.addNote({ text: 'Learn JS', priority: Notes.Priority.HIGHT });
+note.addNote({ text: 'Learn React', priority: Notes.Priority.LOW });
+note.updatePriority('Learn React', Notes.Priority.HIGHT);
+console.log(note);
