@@ -546,34 +546,73 @@
 //Додай методи addNote(note), removeNote(text)
 //updatePriority(text, newPriority)
 
-class Notes {
-  static Priority = { HIGHT: 'hight', LOW: 'low' };
+// class Notes {
+//   static Priority = { HIGHT: 'hight', LOW: 'low' };
 
-  constructor(items = []) {
-    this.items = items;
+//   constructor(items = []) {
+//     this.items = items;
+//   }
+
+//   addNote(note) {
+//     this.items.push(note);
+//   }
+
+//   removeNote(text) {
+//     this.items = this.items.filter(item => item.text !== text);
+//   }
+
+//   updatePriority(text, newPriority) {
+//     this.items = this.items.map(item => {
+//       if (item.text === text) {
+//         item.priority = newPriority;
+//       }
+//       return item;
+//     });
+//   }
+// }
+
+// const note = new Notes();
+
+// note.addNote({ text: 'Learn JS', priority: Notes.Priority.HIGHT });
+// note.addNote({ text: 'Learn React', priority: Notes.Priority.LOW });
+// note.updatePriority('Learn React', Notes.Priority.HIGHT);
+// console.log(note);
+
+//Task 6.1
+//Створити маркований перелік.
+//Створити кнопки "Add" "Remove", які змінюватимуть склад списку
+//Створити input з якого будемо отримувати значення, яке буде в li
+//* Парним li вказати червоне тло, непарним - синім
+//Для виконання завдання використовуйте createElement
+
+const listEl = document.createElement('ol');
+const addBtn = document.createElement('button');
+const removeBtn = document.createElement('button');
+const inputEl = document.createElement('input');
+
+addBtn.textContent = 'add';
+removeBtn.textContent = 'remove';
+
+const containerEl = document.querySelector('.container');
+containerEl.append(inputEl, addBtn, removeBtn, listEl);
+
+const addHandler = () => {
+  const itemEl = document.createElement('li');
+  itemEl.textContent = inputEl.value ? inputEl.value : 'No value';
+  listEl.append(itemEl);
+  inputEl.value = '';
+  const isEven = listEl.children.length % 2 === 0;
+  itemEl.style.background = isEven ? 'red' : 'blue';
+};
+
+addBtn.addEventListener('click', addHandler);
+
+const removeHandler = () => {
+  if (listEl.hasChildNodes()) {
+    listEl.lastElementChild.remove();
+  } else {
+    console.log('No elements to be removed');
   }
+};
 
-  addNote(note) {
-    this.items.push(note);
-  }
-
-  removeNote(text) {
-    this.items = this.items.filter(item => item.text !== text);
-  }
-
-  updatePriority(text, newPriority) {
-    this.items = this.items.map(item => {
-      if (item.text === text) {
-        item.priority = newPriority;
-      }
-      return item;
-    });
-  }
-}
-
-const note = new Notes();
-
-note.addNote({ text: 'Learn JS', priority: Notes.Priority.HIGHT });
-note.addNote({ text: 'Learn React', priority: Notes.Priority.LOW });
-note.updatePriority('Learn React', Notes.Priority.HIGHT);
-console.log(note);
+removeBtn.addEventListener('click', removeHandler);
