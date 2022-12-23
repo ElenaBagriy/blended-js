@@ -1,13 +1,21 @@
 const itemList = document.querySelectorAll('.key__item');
+const itemsUl = document.querySelector('.key__list');
+
+itemsUl.addEventListener('click', onItemsUlClick);
 
 itemList.forEach(item => {
-  item.addEventListener('click', onButtonMusicStart);
   item.addEventListener('transitionend', removeTransition);
 });
 
-function onButtonMusicStart(event) {
-  playSound(event.currentTarget.dataset.key);
-  event.currentTarget.classList.add('playing');
+function onItemsUlClick(e) {
+  const { target } = e;
+  if (target.nodeName === 'UL') {
+    return;
+  }
+  const item = target.closest('.key__item');
+  console.log(item);
+  playSound(item.dataset.key);
+  item.classList.add('playing');
 }
 
 function removeTransition(event) {
@@ -21,7 +29,7 @@ document.addEventListener('keydown', onKeyMusicStart);
 
 function onKeyMusicStart(event) {
   const keyEl = document.querySelector(`li[data-key="${event.keyCode}"]`);
-  
+
   if (!keyEl) {
     return;
   }
