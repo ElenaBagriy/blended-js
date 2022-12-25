@@ -705,8 +705,40 @@ const tweets = [
 //   return el.tags;
 // });
 
-const courses = tweets
-  .reduce((acc, el) => [...acc, ...el.tags], [])
-  .reduce((acc, el) => ({ ...acc, [el]: acc[el] ? acc[el] + 1 : 1 }), {});
+// const courses = tweets
+//   .reduce((acc, el) => [...acc, ...el.tags], [])
+//   .reduce((acc, el) => ({ ...acc, [el]: acc[el] ? acc[el] + 1 : 1 }), {});
 
-  console.log(courses);
+//   console.log(courses);
+
+// const numbers = [1, 3, 4, 3, 4, 6, 7, 8, 9, 9];
+
+// const filteredNumbers = numbers.reduce(
+//   (acc, number) => (!acc.includes(number) ? [...acc, number] : acc),
+//   []
+// );
+// console.log(filteredNumbers);
+
+//Потрібно перевірити "same" масиви
+// числа з першого в квадраті дорівнюють числам другого
+
+const a = [121, 144, 19, 161, 19, 1448, 19, 11];
+const b = [121, 14641, 20736, 361, 25921, 361, 20736, 361];
+
+function same(a, b) {
+  const newA = a.map(number => number ** 2).sort((a, b) => a - b);
+  const sortedB = [...b].sort((a, b) => a - b);
+  // console.log(newA);
+  // console.log(sortedB);
+
+  // for (let i = 0; i < newA.length; i += 1) {
+  //   if (sortedB[i] !== newA[i]) {
+  //     return false;
+  //   }
+  // }
+  // return true;
+
+  return newA.every((element, index) => element === sortedB[index]);
+}
+
+console.log(same(a, b));
