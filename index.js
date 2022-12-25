@@ -616,3 +616,25 @@
 // };
 
 // removeBtn.addEventListener('click', removeHandler);
+
+
+
+const userData = {};
+// userData.date = {};
+// userData.name = "Name1";
+// userData["name"] = "Name1";
+// let name = "name";
+// userData[name] = "Name1";
+
+// console.log(userData);
+const formEl = document.querySelector("form");
+// console.log(formEl);
+
+const onFormInput = event => {
+    const {name, value} = event.target;
+    userData[name] = value;
+    console.log(userData);
+   
+}
+formEl.addEventListener("input", onFormInput);
+
