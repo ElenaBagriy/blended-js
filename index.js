@@ -619,7 +619,11 @@
 
 
 
-const userData = {};
+const userData = {
+    name: "Mango",
+    email: "mango@mail.com",
+    password: "supermango",
+};
 // userData.date = {};
 // userData.name = "Name1";
 // userData["name"] = "Name1";
@@ -638,3 +642,17 @@ const onFormInput = event => {
 }
 formEl.addEventListener("input", onFormInput);
 
+// userData["name"] = userData.name.value;
+// console.log(formEl.elements.email);
+// formEl.elements.email.value = userData.email;
+// formEl.elements.name.value = userData.name;
+// formEl.elements.password.value = userData.password;
+
+// formEl.name.value = userData.name;
+// formEl.email.value = userData.email;
+
+const keys = Object.keys(userData);
+
+keys.forEach((key) => {
+    formEl.elements[key].value = userData[key];
+})
