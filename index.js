@@ -631,16 +631,16 @@ const userData = {
 // userData[name] = "Name1";
 
 // console.log(userData);
-const formEl = document.querySelector("form");
-// console.log(formEl);
+// const formEl = document.querySelector("form");
+// // console.log(formEl);
 
-const onFormInput = event => {
-    const {name, value} = event.target;
-    userData[name] = value;
-    console.log(userData);
+// const onFormInput = event => {
+//     const {name, value} = event.target;
+//     userData[name] = value;
+//     console.log(userData);
    
-}
-formEl.addEventListener("input", onFormInput);
+// }
+// formEl.addEventListener("input", onFormInput);
 
 // userData["name"] = userData.name.value;
 // console.log(formEl.elements.email);
@@ -651,8 +651,34 @@ formEl.addEventListener("input", onFormInput);
 // formEl.name.value = userData.name;
 // formEl.email.value = userData.email;
 
-const keys = Object.keys(userData);
+// const keys = Object.keys(userData);
 
-keys.forEach((key) => {
-    formEl.elements[key].value = userData[key];
-})
+// keys.forEach((key) => {
+//     formEl.elements[key].value = userData[key];
+// })
+
+// Object.entries(userData).forEach(([key, value]) => {
+//     formEl.elements[key].value = value;
+    
+// })
+
+// ____task 4???
+
+const salaries = {
+    John: 100,
+    Ann: 160,
+    Pete: 130
+  }
+
+  const values = Object.values(salaries);
+
+// let amount = 0;
+
+// values.forEach((value) => {
+//     amount += value;
+    
+// })
+
+const amount = values.reduce((acc, el) =>  acc += el, 0)
+
+console.log(amount)
