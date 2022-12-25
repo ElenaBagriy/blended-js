@@ -617,12 +617,10 @@
 
 // removeBtn.addEventListener('click', removeHandler);
 
-
-
 const userData = {
-    name: "Mango",
-    email: "mango@mail.com",
-    password: "supermango",
+  name: 'Mango',
+  email: 'mango@mail.com',
+  password: 'supermango',
 };
 // userData.date = {};
 // userData.name = "Name1";
@@ -638,7 +636,7 @@ const userData = {
 //     const {name, value} = event.target;
 //     userData[name] = value;
 //     console.log(userData);
-   
+
 // }
 // formEl.addEventListener("input", onFormInput);
 
@@ -659,26 +657,56 @@ const userData = {
 
 // Object.entries(userData).forEach(([key, value]) => {
 //     formEl.elements[key].value = value;
-    
+
 // })
 
 // ____task 4???
 
-const salaries = {
-    John: 100,
-    Ann: 160,
-    Pete: 130
-  }
+// const salaries = {
+//     John: 100,
+//     Ann: 160,
+//     Pete: 130
+//   }
 
-  const values = Object.values(salaries);
+//   const values = Object.values(salaries);
 
-// let amount = 0;
+// // let amount = 0;
 
-// values.forEach((value) => {
-//     amount += value;
-    
-// })
+// // values.forEach((value) => {
+// //     amount += value;
 
-const amount = values.reduce((acc, el) =>  acc += el, 0)
+// // })
 
-console.log(amount)
+// const amount = values.reduce((acc, el) =>  acc += el, 0)
+
+// console.log(amount)
+
+// ЗАВДАННЯ 5
+
+const tweets = [
+  { id: '000', likes: 5, tags: ['js', 'nodejs'] },
+  { id: '001', likes: 2, tags: ['html', 'css'] },
+  { id: '002', likes: 17, tags: ['html', 'js', 'nodejs'] },
+  { id: '003', likes: 8, tags: ['css', 'react'] },
+  { id: '004', likes: 0, tags: ['js', 'nodejs', 'react'] },
+  { id: '005', likes: 10, tags: ['aasdsdasd', 'asdaszxcdasdasd', 'asda123123sdasd'] },
+];
+
+// 1. Перебрати масив з об'єктами
+// 2. При кожній ітерації взяти значення з ключа tags (масив значень)
+// 3. Порахувати скільки разів повторюється рядки в масиві рядків
+// 4. Результат записати у новий об'єкт.
+
+// for (const tweet of tweets) {
+//   console.log(tweet.tags);
+// }
+
+// const courses = tweets.flatMap(el => {
+//   return el.tags;
+// });
+
+const courses = tweets
+  .reduce((acc, el) => [...acc, ...el.tags], [])
+  .reduce((acc, el) => ({ ...acc, [el]: acc[el] ? acc[el] + 1 : 1 }), {});
+
+  console.log(courses);
