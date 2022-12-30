@@ -683,14 +683,14 @@ const userData = {
 
 // ЗАВДАННЯ 5
 
-const tweets = [
-  { id: '000', likes: 5, tags: ['js', 'nodejs'] },
-  { id: '001', likes: 2, tags: ['html', 'css'] },
-  { id: '002', likes: 17, tags: ['html', 'js', 'nodejs'] },
-  { id: '003', likes: 8, tags: ['css', 'react'] },
-  { id: '004', likes: 0, tags: ['js', 'nodejs', 'react'] },
-  { id: '005', likes: 10, tags: ['aasdsdasd', 'asdaszxcdasdasd', 'asda123123sdasd'] },
-];
+// const tweets = [
+//   { id: '000', likes: 5, tags: ['js', 'nodejs'] },
+//   { id: '001', likes: 2, tags: ['html', 'css'] },
+//   { id: '002', likes: 17, tags: ['html', 'js', 'nodejs'] },
+//   { id: '003', likes: 8, tags: ['css', 'react'] },
+//   { id: '004', likes: 0, tags: ['js', 'nodejs', 'react'] },
+//   { id: '005', likes: 10, tags: ['aasdsdasd', 'asdaszxcdasdasd', 'asda123123sdasd'] },
+// ];
 
 // 1. Перебрати масив з об'єктами
 // 2. При кожній ітерації взяти значення з ключа tags (масив значень)
@@ -722,23 +722,80 @@ const tweets = [
 //Потрібно перевірити "same" масиви
 // числа з першого в квадраті дорівнюють числам другого
 
-const a = [121, 144, 19, 161, 19, 1448, 19, 11];
-const b = [121, 14641, 20736, 361, 25921, 361, 20736, 361];
+// const a = [121, 144, 19, 161, 19, 1448, 19, 11];
+// const b = [121, 14641, 20736, 361, 25921, 361, 20736, 361];
 
-function same(a, b) {
-  const newA = a.map(number => number ** 2).sort((a, b) => a - b);
-  const sortedB = [...b].sort((a, b) => a - b);
-  // console.log(newA);
-  // console.log(sortedB);
+// function same(a, b) {
+//   const newA = a.map(number => number ** 2).sort((a, b) => a - b);
+//   const sortedB = [...b].sort((a, b) => a - b);
+// console.log(newA);
+// console.log(sortedB);
 
-  // for (let i = 0; i < newA.length; i += 1) {
-  //   if (sortedB[i] !== newA[i]) {
-  //     return false;
-  //   }
-  // }
-  // return true;
+// for (let i = 0; i < newA.length; i += 1) {
+//   if (sortedB[i] !== newA[i]) {
+//     return false;
+//   }
+// }
+// return true;
 
-  return newA.every((element, index) => element === sortedB[index]);
-}
+//   return newA.every((element, index) => element === sortedB[index]);
+// }
 
-console.log(same(a, b));
+// console.log(same(a, b));
+// function getRandomHexColor() {
+//   return `#${Math.floor(Math.random() * 16777215)
+//     .toString(16)
+//     .padStart(6, 0)}`;
+// }
+
+// const inputEl = document.querySelector('input[type="text"]');
+// const createBtnEl = document.querySelector('.createBtn');
+// const destroyBtnEl = document.querySelector('.destroyBtn');
+// const boxesEl = document.querySelector('.boxes');
+
+// function onCreateBtnClick() {
+//   const amount = Number(inputEl.value);
+//   console.log(typeof amount);
+//   const elArr = [];
+//   for (let i = 0; i < amount; i += 1) {
+//     elArr.push(
+//       `<div style='width:${30 + i * 10}px; height:${
+//         30 + i * 10
+//       }px; background-color:${getRandomHexColor()}'></div>`
+//     );
+//   }
+//   inputEl.value = '';
+//   boxesEl.insertAdjacentHTML('beforeend', elArr.join(''));
+// }
+
+// function onDestroyBtnClick() {
+//   boxesEl.innerHTML = '';
+// }
+
+// createBtnEl.addEventListener('click', onCreateBtnClick);
+// destroyBtnEl.addEventListener('click', onDestroyBtnClick);
+
+// stats: { followers, views: userViews, likes: userLikes = 0 },
+// } = user;" = Чому тут userLikes = 0? Дякую
+
+const user = {
+  name: 'Jacques Gluke',
+  tag: 'jgluke',
+  stats: {
+    followers: 5603,
+    views: 4827,
+    likes: 1308,
+  },
+};
+
+const {
+  name,
+  tag,
+  stats: { followers, views: userViews, likes: userLikes = 0 },
+} = user;
+
+console.log(name); // Jacques Gluke
+console.log(tag); // jgluke
+console.log(followers); // 5603
+console.log(userViews); // 4827
+console.log(userLikes); // 1308
